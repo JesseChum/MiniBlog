@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a New Post</title>
+    <link rel="stylesheet" href="/styles/home.css" />
+  </head>
+  <body>
+    <h1>Create a New Post</h1>
+    <p>Please add your name to register for this event.</p>
+    <form method="POST" action="/submit">
+      <input
+        type="text"
+        name="author"
+        placeholder="Author"
+        value="<%= data.author %>"
+      />
+
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        value="<%= data.title %>"
+      />
+
+      <textarea name="content" placeholder="Content">
+      <%= data.content %></textarea
+      >
+
+      <button type="submit">Submit</button>
+
+      <% if (errors && errors.length > 0) { %>
+      <ul class="errors">
+        <% errors.forEach(error => { %>
+        <li><%= error %></li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </form>
+  </body>
+</html>
